@@ -4,12 +4,19 @@ import dotenv from "dotenv"
 import connectDB from "./src/db/index.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import mongoose from "mongoose";
 import authRoutes from "./src/routes/auth.routes.js"
 
 
 
-app.use(cors())
+// MUST match your frontend port: 5174
+app.use(cors({
+  origin: "http://localhost:5174", // ✅ NOT "*"
+  credentials: true               // ✅ Required for cookies/auth headers
+}));
+
+
+
+
 app.use(express.json());
 app.use(cookieParser());
 
