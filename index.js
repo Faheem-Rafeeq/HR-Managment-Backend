@@ -9,7 +9,7 @@ import authRoutes from "./src/routes/auth.routes.js"
 
 
 
-
+app.use(cors())
 app.use(express.json());
 app.use(cookieParser());
 
