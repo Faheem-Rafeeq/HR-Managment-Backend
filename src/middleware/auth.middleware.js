@@ -1,3 +1,4 @@
+// src/middleware/auth.middleware.js
 import jwt from "jsonwebtoken";
 
 export const authenticateUser = (req, res, next) => {
@@ -6,16 +7,16 @@ export const authenticateUser = (req, res, next) => {
 
   jwt.verify(token, process.env.ACCESS_JWT_SECRET, (err, decoded) => {
     if (err) return res.status(403).json({ message: "Invalid token" });
-
-    req.user = decoded; // includes id and role
+    req.user = decoded; // { id, role }
     next();
   });
 };
 
 export const authorizeRoles = (...roles) => {
   return (req, res, next) => {
-    if (!roles.includes(req.user.role))
+    if (!roles.includes(req.user.role)) {
       return res.status(403).json({ message: "Access denied" });
+    }
     next();
   };
 };

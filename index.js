@@ -5,6 +5,10 @@ import connectDB from "./src/db/index.js"
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./src/routes/auth.routes.js"
+import companyRoutes from "./src/routes/company.routes.js";
+import employeeRoutes from "./src/routes/employee.routes.js";
+
+
 
 dotenv.config()
 
@@ -20,8 +24,8 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-
-
+app.use("/api/employees", employeeRoutes);
+app.use("/api/company", companyRoutes);
 app.use("/api/auth", authRoutes);
 
 
