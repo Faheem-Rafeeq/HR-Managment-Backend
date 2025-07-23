@@ -6,27 +6,20 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import authRoutes from "./src/routes/auth.routes.js"
 
+dotenv.config()
 
 
-// MUST match your frontend port: 5174
-app.use(cors({
-  origin: "http://localhost:5174", // ✅ NOT "*"
-  credentials: true               // ✅ Required for cookies/auth headers
-}));
-
-
-
-
+app.use(cors()); 
 app.use(express.json());
 app.use(cookieParser());
 
-dotenv.config()
+
 
 app.use("/api/auth", authRoutes);
 
 
 app.get('/', (req, res) => {
-  res.send('HR Management12')
+    res.send('HR Management12')
 })
 
 connectDB()
