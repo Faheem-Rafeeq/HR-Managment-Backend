@@ -10,7 +10,7 @@ import authRoutes from "./src/routes/auth.routes.js"
 
 // MUST match your frontend port: 5174
 app.use(cors({
-  origin: "http://localhost:5174", // ✅ NOT "*"
+  origin: "http://localhost:5175", // ✅ NOT "*"
   credentials: true               // ✅ Required for cookies/auth headers
 }));
 
