@@ -26,7 +26,7 @@ app.use("/api/auth", authRoutes);
 
 
 app.get('/', (req, res) => {
-  res.send('HR Management1!')
+  res.send('HR Management12')
 })
 
 connectDB()
